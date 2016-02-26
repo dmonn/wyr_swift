@@ -87,19 +87,34 @@
                         <viewControllerLayoutGuide type="bottom" id="uCy-KY-pTs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="coR-H2-Kyx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-iY-iNY">
-                                <rect key="frame" x="245" y="258" width="111" height="83"/>
+                                <rect key="frame" x="152" y="258" width="111" height="219"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="XHb-0l-Zf1"/>
                                 </constraints>
                                 <state key="normal" title="PLAY"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Kec-2Y-1MK"/>
+                                    <action selector="startTapped:" destination="2DL-Ei-3v3" eventType="touchUpInside" id="tR4-bi-UGi"/>
                                 </connections>
                             </button>
+                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n69-ZN-v9R">
+                                <rect key="frame" x="87" y="430" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Questions loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lH-d6-FAx">
+                                        <rect key="frame" x="44" y="74" width="152" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sid-W9-itB">
+                                        <rect key="frame" x="110" y="32" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,6 +124,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="QVe-Ex-AEz"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="AfterAPI" id="6rh-nt-W5c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNH-7J-To2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
