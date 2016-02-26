@@ -9,7 +9,7 @@
         <!--Would You Rather?-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WYR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PlayController" customModule="WYR" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -81,7 +81,7 @@
         <!--Menu-->
         <scene sceneID="O8T-YE-BlO">
             <objects>
-                <viewController id="2DL-Ei-3v3" sceneMemberID="viewController">
+                <viewController id="2DL-Ei-3v3" customClass="StartController" customModule="WYR" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eiM-u0-kIv"/>
                         <viewControllerLayoutGuide type="bottom" id="uCy-KY-pTs"/>
