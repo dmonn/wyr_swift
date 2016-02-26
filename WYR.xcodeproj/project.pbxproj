@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162B8CBCB97C39D60B6F75B6 /* Pods_WYR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20EBC8E6D6DB1D2B3C102C50 /* Pods_WYR.framework */; };
 		4DAED4711C7DF20300238C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAED4701C7DF20300238C7A /* AppDelegate.swift */; };
 		4DAED4731C7DF20300238C7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAED4721C7DF20300238C7A /* ViewController.swift */; };
 		4DAED4761C7DF20300238C7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DAED4741C7DF20300238C7A /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20EBC8E6D6DB1D2B3C102C50 /* Pods_WYR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WYR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAED46D1C7DF20300238C7A /* WYR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAED4701C7DF20300238C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DAED4721C7DF20300238C7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		4DAED48C1C7DF20300238C7A /* WYRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WYRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAED4901C7DF20300238C7A /* WYRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYRUITests.swift; sourceTree = "<group>"; };
 		4DAED4921C7DF20300238C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61E76F349CD752FAEE4C4067 /* Pods-WYR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WYR/Pods-WYR.debug.xcconfig"; sourceTree = "<group>"; };
+		BC3ABE4CA9E0A3EE0A45E9E4 /* Pods-WYR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYR.release.xcconfig"; path = "Pods/Target Support Files/Pods-WYR/Pods-WYR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162B8CBCB97C39D60B6F75B6 /* Pods_WYR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,8 @@
 				4DAED4841C7DF20300238C7A /* WYRTests */,
 				4DAED48F1C7DF20300238C7A /* WYRUITests */,
 				4DAED46E1C7DF20300238C7A /* Products */,
+				B19AA0CC562F8AA6FB6AACF0 /* Pods */,
+				D0D84D1FA121A437E3506C40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +132,23 @@
 			path = WYRUITests;
 			sourceTree = "<group>";
 		};
+		B19AA0CC562F8AA6FB6AACF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61E76F349CD752FAEE4C4067 /* Pods-WYR.debug.xcconfig */,
+				BC3ABE4CA9E0A3EE0A45E9E4 /* Pods-WYR.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D0D84D1FA121A437E3506C40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20EBC8E6D6DB1D2B3C102C50 /* Pods_WYR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DAED4951C7DF20300238C7A /* Build configuration list for PBXNativeTarget "WYR" */;
 			buildPhases = (
+				EA66D68CFCFC2455E9341C07 /* Check Pods Manifest.lock */,
 				4DAED4691C7DF20300238C7A /* Sources */,
 				4DAED46A1C7DF20300238C7A /* Frameworks */,
 				4DAED46B1C7DF20300238C7A /* Resources */,
+				06375063D4DCB548B8B9B884 /* Embed Pods Frameworks */,
+				0F86A3E965D430CE905A3816 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +277,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06375063D4DCB548B8B9B884 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WYR/Pods-WYR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F86A3E965D430CE905A3816 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WYR/Pods-WYR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA66D68CFCFC2455E9341C07 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4DAED4691C7DF20300238C7A /* Sources */ = {
@@ -395,6 +470,7 @@
 		};
 		4DAED4961C7DF20300238C7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61E76F349CD752FAEE4C4067 /* Pods-WYR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WYR/Info.plist;
@@ -406,6 +482,7 @@
 		};
 		4DAED4971C7DF20300238C7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC3ABE4CA9E0A3EE0A45E9E4 /* Pods-WYR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WYR/Info.plist;
@@ -482,6 +559,7 @@
 				4DAED4971C7DF20300238C7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DAED4981C7DF20300238C7A /* Build configuration list for PBXNativeTarget "WYRTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +568,7 @@
 				4DAED49A1C7DF20300238C7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DAED49B1C7DF20300238C7A /* Build configuration list for PBXNativeTarget "WYRUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +577,7 @@
 				4DAED49D1C7DF20300238C7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
