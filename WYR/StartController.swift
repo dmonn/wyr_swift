@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 var questionIDs : Array = [Int]()
 
@@ -27,19 +26,6 @@ class StartController: UIViewController {
     }
     
     func handleQuestions(){
-//        Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
-//            .authenticate(user: "Admin", password: "Admin")
-//            .responseJSON { response in
-//                print(response.request)  // original URL request
-//                print(response.response) // URL response
-//                print(response.data)     // server data
-//                print(response.result)   // result of response serialization
-//                
-//                if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
-//                }
-//        }
-
         
     }
     
