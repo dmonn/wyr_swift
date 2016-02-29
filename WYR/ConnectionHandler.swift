@@ -9,19 +9,22 @@
 import Foundation
 import Alamofire
 
-struct ConnectionHandler {
-    func getQuestions(){
-        Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
-            .authenticate(user: "Admin", password: "Admin")
-            .responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
 
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-            }
+struct ConnectionHandler {
+    let url = "https://wyr-api.herokuapp.com/api/"
+    let user = "dominic"
+    let password = "myPass2015"
+    
+    func getQuestions(completionHandler: (AnyObject?, NSError?) -> ()){
+        Alamofire.request(.GET, url+"questions/", parameters: ["format": "json"])
+            .authenticate(user: user, password: password)
+            .responseJSON { response in
+                switch response.result {
+                case .Success(let value):
+                    completionHandler(value, nil)
+                case .Failure(let error):
+                    completionHandler(nil, error)
+                }
         }
     }
 }

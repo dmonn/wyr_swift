@@ -10,13 +10,17 @@ import Foundation
 import UIKit
 
 var questionIDs : Array = [Int]()
+let connectionHandler : ConnectionHandler = ConnectionHandler()
 
 
 class StartController: UIViewController {
     
+    func hideLoading(hide : Bool){
+        self.view.viewWithTag(1)?.hidden = hide
+    }
     
     override func viewDidLoad() {
-        self.view.viewWithTag(1)?.hidden = true
+        hideLoading(true)
         super.viewDidLoad()
     }
     
@@ -25,15 +29,26 @@ class StartController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func handleQuestions(){
-        
+    
+    func handleQuestions(questions : NSDictionary?){
+        print(Mirror(reflecting: questions).subjectType)
+        print(questions)
     }
     
-    
     @IBAction func startTapped(sender : AnyObject) {
-        print("Start was tapped; Calling Api")
-        handleQuestions()
-        self.performSegueWithIdentifier("AfterAPI", sender: true)
+        hideLoading(false)
+        connectionHandler.getQuestions() { responseObject, error in
+            if((error) == nil){
+                self.handleQuestions(responseObject as? NSDictionary)
+            }
+            else{
+                // TODO: Error Handler
+            }
+            
+            self.hideLoading(true)
+            self.performSegueWithIdentifier("AfterAPI", sender: true)
+            return
+        }
     
     }
 }
