@@ -32,7 +32,9 @@ class StartController: UIViewController {
     
     
     func handleQuestions(questions : JSON){
-        
+        for(_, sub):(String, JSON) in questions{
+            questionIDs.append(sub["id"].int!)
+        }
     }
     
     @IBAction func startTapped(sender : AnyObject) {
