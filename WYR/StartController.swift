@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 var questionIDs : Array = [Int]()
 let connectionHandler : ConnectionHandler = ConnectionHandler()
@@ -30,16 +31,15 @@ class StartController: UIViewController {
     }
     
     
-    func handleQuestions(questions : NSDictionary?){
-        print(Mirror(reflecting: questions).subjectType)
-        print(questions)
+    func handleQuestions(questions : JSON){
+        
     }
     
     @IBAction func startTapped(sender : AnyObject) {
         hideLoading(false)
         connectionHandler.getQuestions() { responseObject, error in
             if((error) == nil){
-                self.handleQuestions(responseObject as? NSDictionary)
+                self.handleQuestions(responseObject)
             }
             else{
                 // TODO: Error Handler
