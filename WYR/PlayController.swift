@@ -12,9 +12,11 @@ import UIKit
 
 class PlayController: UIViewController {
     
+    var questions : NSDictionary?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print(questions)
     }
     
     override func didReceiveMemoryWarning() {

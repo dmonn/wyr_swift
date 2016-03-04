@@ -9,11 +9,9 @@
 import Foundation
 import UIKit
 
-var questionIDs : Array = [Int]()
-let connectionHandler : ConnectionHandler = ConnectionHandler()
-
-
 class StartController: UIViewController {
+    var questionDict : NSDictionary = NSDictionary()
+    let connectionHandler : ConnectionHandler = ConnectionHandler()
     
     func hideLoading(hide : Bool){
         self.view.viewWithTag(1)?.hidden = hide
@@ -29,20 +27,19 @@ class StartController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func handleQuestions(questions : NSDictionary){
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let playController = segue.destinationViewController as? PlayController else { return }
+        
+        playController.questions = questionDict
     }
     
     @IBAction func startTapped(sender : AnyObject) {
         hideLoading(false)
         connectionHandler.getQuestions() { responseObject, error in
             if((error) == nil){
-                guard let response = responseObject else {
-                    return // TODO: Error Handling
-                }
+                guard let response = responseObject else { return }
                 
-                self.handleQuestions(response)
+                self.questionDict = response
             }
             else{
                 // TODO: Error Handling
