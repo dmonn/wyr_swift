@@ -11,12 +11,25 @@ import Foundation
 import UIKit
 
 class PlayController: UIViewController {
-    
     var questions : NSArray?
+    var questionIndices : [Int] = []
+    
+    func getIndices(count : Int) -> [Int]{
+        return Array(0...count)
+    }
+    
+    func prepareQuestion(){
+        print(questions)
+        print(questionIndices)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(questions)
+        guard let questionsArray = questions else {
+            return
+        }
+        questionIndices = getIndices(questionsArray.count-1)
+        prepareQuestion()
     }
     
     override func didReceiveMemoryWarning() {
