@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class StartController: UIViewController {
-    var questionDict : NSDictionary = NSDictionary()
+    var questionDict : NSArray = [NSDictionary]()
     let connectionHandler : ConnectionHandler = ConnectionHandler()
     
     func hideLoading(hide : Bool){

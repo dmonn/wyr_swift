@@ -15,15 +15,14 @@ struct ConnectionHandler {
     let user = "dominic"
     let password = "myPass2015"
     
-    func getQuestions(completionHandler: (NSDictionary?, NSError?) -> ()){
+    func getQuestions(completionHandler: (NSArray?, NSError?) -> ()){
         Alamofire.request(.GET, url+"questions/", parameters: ["format": "json"])
             .authenticate(user: user, password: password)
             .responseJSON { response in
                 switch response.result {
                 case .Success(let JSON):
-                    let response = JSON as! NSDictionary
+                    let response = JSON as! [NSDictionary]
                     completionHandler(response, nil)
-                    
                 case .Failure(let error):
                     completionHandler(nil, error)
                 }

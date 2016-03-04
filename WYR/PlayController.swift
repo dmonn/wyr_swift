@@ -12,7 +12,7 @@ import UIKit
 
 class PlayController: UIViewController {
     
-    var questions : NSDictionary?
+    var questions : NSArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
