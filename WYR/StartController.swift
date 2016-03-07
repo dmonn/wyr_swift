@@ -34,6 +34,9 @@ class StartController: UIViewController {
     }
     
     @IBAction func startTapped(sender : AnyObject) {
+        
+        // Loading gets displayed and questions are Loaded
+        
         hideLoading(false)
         connectionHandler.getQuestions() { responseObject, error in
             if((error) == nil){
@@ -46,6 +49,8 @@ class StartController: UIViewController {
             }
             
             self.hideLoading(true)
+            
+            // Segue gets performed after questions arrived
             self.performSegueWithIdentifier("AfterAPI", sender: true)
             return
         }
