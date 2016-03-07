@@ -12,24 +12,38 @@ import UIKit
 
 class PlayController: UIViewController {
     var questions : NSArray?
-    var questionIndices : [Int] = []
+    @IBOutlet weak var questionLabel: UILabel!
     
-    func getIndices(count : Int) -> [Int]{
-        return Array(0...count)
+    func displayQuestion(question : NSDictionary){
+        print(question)
+        self.questionLabel.text = question["description"] as? String
     }
     
-    func prepareQuestion(){
-        print(questions)
-        print(questionIndices)
+    func pickQuestion(questionArray : NSArray){
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(questionArray.count)))
+        guard let selectedQuestion = questionArray[randomIndex] as? NSDictionary else {
+            return
+        }
+        
+        displayQuestion(selectedQuestion)
+        
+    }
+    
+    func answerQuestion(option : Int){
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let progressView = self.view.viewWithTag(2){
+            progressView.hidden = true
+        }
+        
         guard let questionsArray = questions else {
             return
         }
-        questionIndices = getIndices(questionsArray.count-1)
-        prepareQuestion()
+        pickQuestion(questionsArray)
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,5 +51,12 @@ class PlayController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func firstOptionTapped(sender : AnyObject){
+        answerQuestion(1)
+    }
+    
+    @IBAction func secondOptionTapped(sender : AnyObject){
+        answerQuestion(2)
+    }
     
 }
