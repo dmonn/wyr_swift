@@ -32,10 +32,9 @@ struct ConnectionHandler {
     
     func sendAnswer(chosen : Int, question : Int){
         guard let answer = ["chosen":chosen, "question":question, "format": "json"] as [String : AnyObject]? else{
+            print("Something seems to be wrong - Abort mission")
             return
         }
-        
-        print(answer)
         
         Alamofire.request(.POST, url+"answers/", parameters: answer)
             .authenticate(user: user, password: password)

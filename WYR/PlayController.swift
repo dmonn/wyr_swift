@@ -18,23 +18,28 @@ class PlayController: UIViewController {
     var lastStat : Float?
     let connectionHandler : ConnectionHandler = ConnectionHandler()
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var statLabel: UILabel!
+    @IBOutlet weak var statBar: UIProgressView!
     
     // Function to hide/show statistics
     func hideStats(hide : Bool){
-        if let progressView = self.view.viewWithTag(2){
-            progressView.hidden = hide
-        }
+        self.view.viewWithTag(2)?.hidden = hide
     }
     
     // Load question description into label
     func displayQuestion(question : NSDictionary){
-        print(question)
         self.questionLabel.text = question["description"] as? String
     }
     
     // Stat calculation
-    func displayStats(chosenOpt : Int, stat : Float){
+    func displayStats(chosenOpt : Int, var stat : Float){
         hideStats(false)
+        if(chosenOpt == 2){
+            // If option 2 was selected, get inverted stat
+            stat = Float(1)-stat
+        }
+        self.statLabel.text = String(Int(stat*100)) + "% think so too"
+        self.statBar.progress = stat
     }
     
     // Pick a random question
@@ -45,9 +50,7 @@ class PlayController: UIViewController {
             return
         }
         
-        if let question = currentQuestion{
-            lastStat = question.objectForKey("first_option_result") as? Float
-        }
+        currentQuestion = selectedQuestion
         
         displayQuestion(selectedQuestion)
     }
@@ -60,11 +63,14 @@ class PlayController: UIViewController {
             connectionHandler.sendAnswer(option, question: questionID)
         }
         
+        if let questionStat = currentQuestion?.objectForKey("first_option_result") as? Float{
+            lastStat = questionStat
+        }
+        
         if let statistic = lastStat {
             displayStats(option, stat: statistic)
         }
         
-        hideStats(false)
         
         if let questionsArray = questions{
             pickQuestion(questionsArray)
